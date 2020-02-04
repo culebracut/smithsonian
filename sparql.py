@@ -5,7 +5,7 @@ import logging
 from lxml import etree
 from SPARQLWrapper import SPARQLWrapper
 
-# save location..
+# save location...............
 imagePath = "data/images/"
 logFilePath = "data/"
 
