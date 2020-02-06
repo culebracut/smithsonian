@@ -11,6 +11,8 @@ import tensorflow_hub as hub
 
 import os, random
 
+filePath = '/media/19F1-354C/data/images/'
+modelPath = '/media/19F1-354C/data/arbitrary-image-stylization-v1-256/'
 
 print("TF Version: ", tf.__version__)
 print("TF-Hub version: ", hub.__version__)
@@ -25,8 +27,10 @@ print("GPU available: ", tf.test.is_gpu_available())
 
 # Load TF-Hub module.
 #hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
-hub_handle = '/home/system/data/arbitrary-image-stylization-v1-256/'
+hub_handle = modelPath
+print('load model...{}'.format(hub_handle))
 hub_module = hub.load(hub_handle)
+print('model loaded')
 
 ##############################
 # helper functions
@@ -76,9 +80,8 @@ def show_n(images, titles=('',)):
 ################################
 for i in range(10):
     # Get files
-    filePath = '/home/system/data/Smithsonian/images/'
-    style_image_url = filePath + random.choice(os.listdir("/home/system/data/Smithsonian/images/")) 
-    content_image_url = filePath + random.choice(os.listdir("/home/system/data/Smithsonian/images/")) 
+    style_image_url = filePath + random.choice(os.listdir(filePath)) 
+    content_image_url = filePath + random.choice(os.listdir(filePath)) 
     print (style_image_url)
     print (content_image_url)
     # The content image size can be arbitrary.
